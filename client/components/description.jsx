@@ -18,11 +18,7 @@ class Description extends React.Component {
     super(props);
 
     this.state = {
-      about: [],
-      minimized: '',
-      maximized: '',
-      open: false,
-      openInfo: false
+      open: false
     }
     this.handleClick = this.handleClick.bind(this);
   }
@@ -46,20 +42,22 @@ class Description extends React.Component {
   }
 
 
+
   render() {
+
     return (
       <div>
         <div>
           {this.state.open ?
             <div>
             <div className="about">
-              {this.state.about.description}
+              {this.props.about.description}
               <Show onClick={this.handleClick}> Read Less</Show>
               </div>
             </div>  :
             <div>
             <div className="about">
-              {this.state.minimized}
+              {this.props.minimized}
               <Show onClick={this.handleClick}> Read More</Show>
               </div>
             </div>
@@ -68,7 +66,7 @@ class Description extends React.Component {
           <DescriptionInfoList
           open={this.props.open}
           handleClick={this.handleInfoClick}
-          data={this.state.about}
+          data={this.props.about}
           />
       </div>
     )

@@ -13,10 +13,17 @@ const allowCORS = (req, res, next) => {
 
 app.use(allowCORS);
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/api/about', (req, res) => {
-  db.About.findOne()
+app.use('/', express.static('./public/'));
+app.use(/\/\d+\//, express.static('./public/'));
+
+
+app.get('/api/about:id', (req, res) => {
+  var id = req.params.id.split(':');
+
+  db.About.findOne({
+    where: {id: Number(id[1])}
+  })
     .then(data => {
       res.status(200);
       res.json(data);
