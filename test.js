@@ -1,5 +1,5 @@
 import React from 'react';
-import App from './client/components/app.jsx';
+import App from './client/components/App.jsx';
 
 import renderer from 'react-test-renderer';
 

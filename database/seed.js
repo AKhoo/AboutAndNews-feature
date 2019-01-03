@@ -1,7 +1,6 @@
 const faker = require('faker');
 const db = require('../database/index.js');
 
-
 var employees = 5500;
 var founded = 1997;
 var marketCap = 113.64;

@@ -28,9 +28,9 @@ class Description extends React.Component {
   }
 
   componentDidMount(){
-     axios.get('/api/about')
+     axios.get('http://localhost:8080/api/about')
       .then(({data}) => {
-        var split = response.data.description.split('.');
+        var split = data.description.split('.');
         var min = split[0] + '. ' + split[1] + '.'
         this.setState({
           about: data,

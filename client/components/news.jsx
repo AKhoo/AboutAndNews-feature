@@ -19,14 +19,14 @@ class News extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/news')
+    axios.get('http://localhost:8080/api/news')
       .then(response => {
         this.setState({
           news: response.data
         });
       });
 
-    axios.get('/api/about')
+    axios.get('http://localhost:8080/api/about')
       .then(response => {
         this.setState({
           about: response.data
