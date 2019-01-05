@@ -3,6 +3,7 @@ import axios from 'axios';
 import News from './news.jsx';
 import styled from 'styled-components';
 import Description from './description.jsx';
+import apiRoot from './apiRoot.js'
 
 
 const Heading = styled.h2 `
@@ -44,7 +45,7 @@ class App extends React.Component {
     }
 
      axios
-     .get(`http://localhost:8080/api/about:${id}`)
+     .get(`${apiRoot}api/about:${id}`)
       .then(response => {
         var split = response.data.description.split('.');
         var min = split[0] + '. ' + split[1] + '.';

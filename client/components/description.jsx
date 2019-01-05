@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import DescriptionInfoList from './descriptionInfoList.jsx';
 import axios from 'axios';
+import apiRoot from './apiRoot.js'
+
 
 const Show = styled.a `
   color: #21ce99;
@@ -21,18 +23,6 @@ class Description extends React.Component {
       open: false
     }
     this.handleClick = this.handleClick.bind(this);
-  }
-
-  componentDidMount(){
-     axios.get('http://localhost:8080/api/about')
-      .then(({data}) => {
-        var split = data.description.split('.');
-        var min = split[0] + '. ' + split[1] + '.'
-        this.setState({
-          about: data,
-          minimized: min
-        });
-      });
   }
 
   handleClick() {

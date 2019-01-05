@@ -1,6 +1,7 @@
 import React from 'react';
 import NewsList from './newsList.jsx';
 import axios from 'axios';
+import apiRoot from './apiRoot.js'
 
 
 class News extends React.Component {
@@ -19,7 +20,7 @@ class News extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8080/api/news')
+    axios.get(`${apiRoot}api/news`)
       .then(response => {
         console.log(response.data)
         this.setState({
